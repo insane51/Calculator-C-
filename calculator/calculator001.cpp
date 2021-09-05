@@ -44,7 +44,10 @@ class simplecalculator{
         }
 
         void print(){
-            if(isoutput) cout<<res<<endl;
+            if(isoutput)
+                cout<<"result: "<<a<<" "<<operation<<" "<<b<<" = "<<res<<endl;
+            else
+                cout<<"Renter the correct values."<<endl;
         }
 
 };
@@ -64,7 +67,11 @@ int main(){
             }
 
             case 1:{
-
+                simplecalculator obj1;
+                obj1.input();
+                obj1.solution();
+                obj1.print();
+                break;
             }
 
             case 2:{

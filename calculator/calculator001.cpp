@@ -11,12 +11,15 @@ class simplecalculator{
         simplecalculator(float x,float y){
             a=x;b=y;
         }
-        void input(){
+        void inputSimple(){
             cout<<"Enter the values :"<<endl;
             cin>>a>>b;
         }
+        void inputSimple(int x,int y){
+            a=x,b=y;
+        }
 
-        void solution(){
+        void solutionSimple(){
             cout<<"a+b : "<<a+b<<endl;
             cout<<"a-b : "<<a-b<<endl;
             cout<<"a*b : "<<a*b<<endl;
@@ -35,12 +38,15 @@ class scintificCalculator{
         scintificCalculator(int x,int y){
             a=x;b=y;
         }
-        void input(){
-            cout<<"Enter the values of a anf b :"<<endl;
+        void inputScintific(){
+            cout<<"Enter the values of a and b :"<<endl;
             cin>>a>>b;
         }
+        void inputScintific(int x,int y){
+            a=x,b=y;
+        }
 
-        void solution(){
+        void solutionScintific(){
             cout<<"sin(a) : "<<sin(a)<<endl;
             cout<<"cos(a) : "<<cos(a)<<endl;
             cout<<"tan(a) : "<<tan(a)<<endl;
@@ -50,12 +56,24 @@ class scintificCalculator{
         }
 };
 
+class hybridCalculator : public simplecalculator,public scintificCalculator{
+   int m,n;
+   public:  
+        void inputHybrid(){
+            cout<<"Enter the values of a and b :"<<endl;
+            cin>>m>>n;
+            inputScintific(m,n);
+            inputSimple(m,n);
+        }
+};
+
 int main(){
     cout<<"Welcome to the calculator"<<endl;
     while(true){
         cout<<"0.Exit"<<endl;
         cout<<"1.Simple calculation"<<endl;
         cout<<"2.Scintific calculation"<<endl;
+        cout<<"3.Hybrid calculation"<<endl;
         int n; cin>>n;
 
         switch(n){
@@ -66,16 +84,22 @@ int main(){
 
             case 1:{
                 simplecalculator obj1;
-                obj1.input();
-                obj1.solution();
+                obj1.inputSimple();
+                obj1.solutionSimple();
                 break;
             }
 
             case 2:{
                 scintificCalculator obj2;
-                obj2.input();
-                obj2.solution();
+                obj2.inputScintific();
+                obj2.solutionScintific();
                 break;
+            }
+            case 3:{
+                hybridCalculator obj3;
+                obj3.inputHybrid();
+                obj3.solutionSimple();3
+                obj3.solutionScintific();
             }
 
         }

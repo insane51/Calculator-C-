@@ -2,12 +2,11 @@
 using namespace std;
 
 class simplecalculator{
-    float a,b,res;
-    char operation; 
+    float a,b;
     bool isoutput=true;   
     public:
         simplecalculator(){
-            a=0;b=0;res=0;
+            a=0;b=0;
         }
         simplecalculator(float x,float y){
             a=x;b=y;
@@ -15,41 +14,40 @@ class simplecalculator{
         void input(){
             cout<<"Enter the values :"<<endl;
             cin>>a>>b;
-            cout<<"Enter the operation :"<<endl;
-            cin>>operation;
         }
 
         void solution(){
-            switch(operation){
-                case '+':{
-                    res=a+b; break;
-                }
-                case '-':{
-                    res=a-b; break;
-                }
-                case '*':{
-                    res=a*b; break;
-                }
-                case '/':{
-                    if(b==0) cout<<"invalid b"<<endl,isoutput=false;
-                    else res=a/b;
-                    break;
-                }
-                default :{
-                    cout<<"Enter the values again with valid operation."<<endl;
-                    isoutput=false;
-                }
-            }
-
+            cout<<"a+b : "<<a+b<<endl;
+            cout<<"a-b : "<<a-b<<endl;
+            cout<<"a*b : "<<a*b<<endl;
+            if(b!=0) cout<<"a/b : "<<a/b<<endl;
+            else cout<<"b is zero"<<endl;
         }
 
-        void print(){
-            if(isoutput)
-                cout<<"result: "<<a<<" "<<operation<<" "<<b<<" = "<<res<<endl;
-            else
-                cout<<"Renter the correct values."<<endl;
+};
+
+class scintificCalculator{
+    int a,b;
+    public:
+        scintificCalculator(){
+            a=0;b=0;
+        }
+        scintificCalculator(int x,int y){
+            a=x;b=y;
+        }
+        void input(){
+            cout<<"Enter the values of a anf b :"<<endl;
+            cin>>a>>b;
         }
 
+        void solution(){
+            cout<<"sin(a) : "<<sin(a)<<endl;
+            cout<<"cos(a) : "<<cos(a)<<endl;
+            cout<<"tan(a) : "<<tan(a)<<endl;
+            cout<<"sin(b) : "<<sin(b)<<endl;
+            cout<<"cos(b) : "<<cos(b)<<endl;
+            cout<<"tan(b) : "<<tan(b)<<endl;
+        }
 };
 
 int main(){
@@ -70,12 +68,14 @@ int main(){
                 simplecalculator obj1;
                 obj1.input();
                 obj1.solution();
-                obj1.print();
                 break;
             }
 
             case 2:{
-
+                scintificCalculator obj2;
+                obj2.input();
+                obj2.solution();
+                break;
             }
 
         }
